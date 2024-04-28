@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawSimpleNodeChart);
+      function drawSimpleNodeChart() {
+
+        var data = google.visualization.arrayToDataTable(
+          [ ['текст'],
+          ['Starlink is a satellite internet constellation operated by Starlink Services, LLC, a wholly-owned subsidiary of American aerospace company SpaceX,[3] providing coverage to over 70 countries. It also aims to provide global mobile broadband. SpaceX started launching Starlink satellites in 2019. The SpaceX satellite development facility in Redmond, Washington houses the Starlink research, development, manufacturing and orbit control facilities.']]
+        );
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            type: 'double',
+            word: 'Starlink'
+          }
+        };
+        var wordtree = new google.visualization.WordTree(document.getElementById('wordtree_double'));
+        wordtree.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_double" style="width: 1500px; height: 500px;"></div>
+  </body>
+</html>

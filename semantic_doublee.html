@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawSimpleNodeChart);
+      function drawSimpleNodeChart() {
+
+        var data = google.visualization.arrayToDataTable(
+          [ ['текст'],
+          ['CSS is the language we use to style a Web page. What is CSS? CSS stands for Cascading Style Sheets CSS describes how HTML elements are to be displayed on screen, paper, or in other media CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files. CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.']]
+        );
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            type: 'double',
+            word: 'CSS'
+          }
+        };
+        var wordtree = new google.visualization.WordTree(document.getElementById('wordtree_double'));
+        wordtree.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_double" style="width: 1500px; height: 500px;"></div>
+  </body>
+</html>

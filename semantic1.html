@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        packages: ['wordtree']
+      });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+          [
+            ['фрази'],
+['Студенти обговорюють групові проєкти.'],
+  ['Студенти обговорюють лекції та вправи під час семінарів.'],
+  ['Студенти отримують підтримку від студентських рад під час розв\'язання проблем.'],
+  ['Студенти долучаються до клубів та студентських організацій.'],
+  ['Студенти користуються бібліотечними ресурсами для досліджень.'],
+  ['Студенти долучаються до студентських заходів та свят.'],
+  ['Студенти отримують підтримку щодо кар\'єри від кафедр та кар\'єрних центрів.'],
+  ['Студенти співпрацюють над проектами з підрозділами університету (наприклад, бібліотекою або інформаційним центром).'],
+  ['Студенти отримують розклади та інформацію від адміністративних підрозділів університету.'],
+  ['Студенти долучаються до професійних заходів та конференцій організованих університетом.']
+          ]);
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            word: 'Студенти'
+          }
+        };
+        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+              chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_basic" style="width: 1500px; height: 500px;"></div>
+  </body>
+</html>
